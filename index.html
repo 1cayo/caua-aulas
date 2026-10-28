@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cauã Victor — Aulas de Violão e Contrabaixo | Do Zero ao Palco</title>
+  <title>Aulas de Violão e Contrabaixo</title>
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -107,6 +107,22 @@
     <section class="hero" id="hero">
       <div class="hero-music-lines"></div>
       <div class="hero-glow-back"></div>
+
+      <!-- Silhueta Monumental do Violão a 32° como Marca d'Água (Flyer Original) -->
+      <svg class="hero-watermark-guitar" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="rotate(32 50 50)">
+          <path d="M42 6C42 3.8 43.8 2 46 2H54C56.2 2 58 3.8 58 6V22H42V6Z" fill="#00B6D6"/>
+          <circle cx="37" cy="9" r="3.5" fill="#00B6D6"/>
+          <circle cx="37" cy="17" r="3.5" fill="#00B6D6"/>
+          <circle cx="63" cy="9" r="3.5" fill="#00B6D6"/>
+          <circle cx="63" cy="17" r="3.5" fill="#00B6D6"/>
+          <path d="M43 22H57V48H43V22Z" fill="#FFF4DC"/>
+          <circle cx="50" cy="54" r="20" fill="#FFF4DC"/>
+          <circle cx="50" cy="74" r="26" fill="#FFF4DC"/>
+          <circle cx="50" cy="60" r="9.5" fill="#0030D6"/>
+          <rect x="40" y="82" width="20" height="6" rx="2" fill="#0030D6"/>
+        </g>
+      </svg>
 
       <div class="container hero-grid">
         <!-- Texto de Apresentação e Conversão -->
@@ -363,56 +379,62 @@
         <!-- AFINADOR / SINTETIZADOR INTERATIVO DE CORDAS -->
         <div class="interactive-strings-box" id="afinador">
           <div class="strings-title">Toque as cordas agora mesmo</div>
-          <div class="strings-subtitle">Clique em cada botão para ouvir o timbre real sintetizado pelo navegador via Web
-            Audio API:</div>
+          <div class="strings-subtitle">Clique em cada botão para ouvir o timbre acústico sintetizado via Web Audio API:</div>
 
-          <div class="strings-fretboard">
-            <button class="string-btn" data-note="E2" aria-label="Tocar corda Mi grave do Violão">
-              <span class="string-note">E</span>
-              <span class="string-name">6ª Mi (Violão)</span>
-            </button>
-            <button class="string-btn" data-note="A2" aria-label="Tocar corda Lá do Violão">
-              <span class="string-note">A</span>
-              <span class="string-name">5ª Lá (Violão)</span>
-            </button>
-            <button class="string-btn" data-note="D3" aria-label="Tocar corda Ré do Violão">
-              <span class="string-note">D</span>
-              <span class="string-name">4ª Ré (Violão)</span>
-            </button>
-            <button class="string-btn" data-note="G3" aria-label="Tocar corda Sol do Violão">
-              <span class="string-note">G</span>
-              <span class="string-name">3ª Sol (Violão)</span>
-            </button>
-            <button class="string-btn" data-note="B3" aria-label="Tocar corda Si do Violão">
-              <span class="string-note">B</span>
-              <span class="string-name">2ª Si (Violão)</span>
-            </button>
-            <button class="string-btn" data-note="E4" aria-label="Tocar corda Mi aguda do Violão">
-              <span class="string-note">e</span>
-              <span class="string-name">1ª Mi (Violão)</span>
-            </button>
+          <div class="strings-fretboard-container">
+            <!-- Cordas do Violão -->
+            <div class="strings-section-row">
+              <span class="strings-group-label">🎸 Cordas do Violão (Afinação Standard)</span>
+              <div class="strings-fretboard">
+                <button class="string-btn" data-note="E2" aria-label="Tocar corda Mi grave do Violão">
+                  <span class="string-note">E</span>
+                  <span class="string-name">6ª Mi</span>
+                </button>
+                <button class="string-btn" data-note="A2" aria-label="Tocar corda Lá do Violão">
+                  <span class="string-note">A</span>
+                  <span class="string-name">5ª Lá</span>
+                </button>
+                <button class="string-btn" data-note="D3" aria-label="Tocar corda Ré do Violão">
+                  <span class="string-note">D</span>
+                  <span class="string-name">4ª Ré</span>
+                </button>
+                <button class="string-btn" data-note="G3" aria-label="Tocar corda Sol do Violão">
+                  <span class="string-note">G</span>
+                  <span class="string-name">3ª Sol</span>
+                </button>
+                <button class="string-btn" data-note="B3" aria-label="Tocar corda Si do Violão">
+                  <span class="string-note">B</span>
+                  <span class="string-name">2ª Si</span>
+                </button>
+                <button class="string-btn" data-note="E4" aria-label="Tocar corda Mi aguda do Violão">
+                  <span class="string-note">e</span>
+                  <span class="string-name">1ª Mi</span>
+                </button>
+              </div>
+            </div>
 
             <!-- Cordas do Contrabaixo -->
-            <button class="string-btn" data-note="E1" style="background-color: var(--color-indigo-grave);"
-              aria-label="Tocar corda Mi do Contrabaixo">
-              <span class="string-note">E1</span>
-              <span class="string-name">4ª Mi (Baixo)</span>
-            </button>
-            <button class="string-btn" data-note="A1" style="background-color: var(--color-indigo-grave);"
-              aria-label="Tocar corda Lá do Contrabaixo">
-              <span class="string-note">A1</span>
-              <span class="string-name">3ª Lá (Baixo)</span>
-            </button>
-            <button class="string-btn" data-note="D2" style="background-color: var(--color-indigo-grave);"
-              aria-label="Tocar corda Ré do Contrabaixo">
-              <span class="string-note">D2</span>
-              <span class="string-name">2ª Ré (Baixo)</span>
-            </button>
-            <button class="string-btn" data-note="G2" style="background-color: var(--color-indigo-grave);"
-              aria-label="Tocar corda Sol do Contrabaixo">
-              <span class="string-note">G2</span>
-              <span class="string-name">1ª Sol (Baixo)</span>
-            </button>
+            <div class="strings-section-row">
+              <span class="strings-group-label">🔊 Cordas do Contrabaixo (Graves Potentes)</span>
+              <div class="strings-fretboard">
+                <button class="string-btn string-bass" data-note="E1" style="background-color: var(--color-indigo-grave);" aria-label="Tocar corda Mi do Contrabaixo">
+                  <span class="string-note">E1</span>
+                  <span class="string-name">4ª Mi</span>
+                </button>
+                <button class="string-btn string-bass" data-note="A1" style="background-color: var(--color-indigo-grave);" aria-label="Tocar corda Lá do Contrabaixo">
+                  <span class="string-note">A1</span>
+                  <span class="string-name">3ª Lá</span>
+                </button>
+                <button class="string-btn string-bass" data-note="D2" style="background-color: var(--color-indigo-grave);" aria-label="Tocar corda Ré do Contrabaixo">
+                  <span class="string-note">D2</span>
+                  <span class="string-name">2ª Ré</span>
+                </button>
+                <button class="string-btn string-bass" data-note="G2" style="background-color: var(--color-indigo-grave);" aria-label="Tocar corda Sol do Contrabaixo">
+                  <span class="string-note">G2</span>
+                  <span class="string-name">1ª Sol</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
