@@ -202,9 +202,11 @@ button {
   font-size: 1.125rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 18px 36px;
+  padding: 18px 42px;
   border-radius: var(--radius-pill);
   box-shadow: 0 8px 28px rgba(0, 182, 214, 0.45);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: transform var(--transition-spring), box-shadow var(--transition-normal), background-color var(--transition-fast);
   position: relative;
   overflow: hidden;
@@ -254,8 +256,10 @@ button {
   font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 16px 32px;
+  padding: 16px 36px;
   border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: all var(--transition-normal);
 }
 
@@ -348,7 +352,7 @@ button {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
 }
 
@@ -358,6 +362,7 @@ button {
   color: var(--color-creme-muted);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -380,22 +385,27 @@ button {
 }
 
 .nav-cta {
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
   font-weight: 900;
-  padding: 12px 24px;
+  padding: 14px 34px;
   background-color: var(--color-ciano-pulso);
   color: var(--color-noite);
   border-radius: var(--radius-pill);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 16px rgba(0, 182, 214, 0.35);
-  transition: var(--transition-normal);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 182, 214, 0.4);
+  transition: transform var(--transition-spring), box-shadow var(--transition-normal), background-color var(--transition-fast);
 }
 
 .nav-cta:hover {
-  transform: translateY(-2px);
-  background-color: #1be4ff;
-  box-shadow: 0 8px 24px rgba(0, 182, 214, 0.5);
+  transform: translateY(-2px) scale(1.02);
+  background-color: #23e8ff;
+  box-shadow: 0 8px 26px rgba(0, 182, 214, 0.6);
 }
 
 /* Mobile Toggle */
