@@ -38,19 +38,23 @@
   --color-creme-muted: rgba(255, 244, 220, 0.72);
   --color-creme-subtle: rgba(255, 244, 220, 0.45);
 
-  /* Superfícies Arquitetadas (Substitui gradientes genéricos por profundidade real) */
-  --surface-ground: #050d29;
-  --surface-base: #06123A;
-  --surface-elevated: #091744;
-  --surface-card: #0b1a4c;
-  --surface-card-hover: #0e205c;
-  --surface-subtle: rgba(255, 244, 220, 0.04);
-  --surface-subtle-hover: rgba(255, 244, 220, 0.08);
+  /* Gradiente Assinatura Oficial (Referência: Índigo #1600D6 -> Azul #0072D6 -> Ciano #00B6D6) */
+  --gradiente-assinatura: linear-gradient(90deg, #1600D6 0%, #0072D6 50%, #00B6D6 100%);
+  --gradiente-bg: linear-gradient(145deg, #1600D6 0%, #0051b8 40%, #0072D6 75%, #00B6D6 100%);
+
+  /* Superfícies Arquitetadas sobre o Gradiente */
+  --surface-ground: #06123A;
+  --surface-base: rgba(6, 18, 58, 0.55);
+  --surface-elevated: rgba(6, 18, 58, 0.88);
+  --surface-card: rgba(6, 18, 58, 0.78);
+  --surface-card-hover: rgba(6, 18, 58, 0.92);
+  --surface-subtle: rgba(255, 244, 220, 0.05);
+  --surface-subtle-hover: rgba(255, 244, 220, 0.1);
 
   /* Bordas Precisas e Limpas */
-  --border-subtle: rgba(255, 244, 220, 0.09);
-  --border-medium: rgba(255, 244, 220, 0.16);
-  --border-highlight: rgba(0, 182, 214, 0.4);
+  --border-subtle: rgba(255, 244, 220, 0.14);
+  --border-medium: rgba(255, 244, 220, 0.22);
+  --border-highlight: rgba(255, 244, 220, 0.45);
 
   /* Tipografia Padronizada */
   --font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -91,7 +95,9 @@ html {
 
 body {
   font-family: var(--font-family);
-  background-color: var(--surface-ground);
+  background: var(--gradiente-bg);
+  background-attachment: fixed;
+  background-size: cover;
   color: var(--color-creme);
   line-height: 1.6;
   overflow-x: hidden;
@@ -369,7 +375,7 @@ button {
 .hero {
   min-height: 94vh;
   padding: 140px 0 80px;
-  background-color: var(--surface-ground);
+  background: transparent;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -556,6 +562,8 @@ button {
 /* 9. Faixa de Destaques / Ticker Diferenciais */
 .features-ticker {
   background-color: var(--surface-base);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
   padding: 24px 0;
@@ -612,6 +620,8 @@ button {
 
 .instrumento-card {
   background-color: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-top: 1px solid var(--border-medium);
   border-radius: var(--radius-card);
@@ -708,6 +718,8 @@ button {
 /* 12. Sobre o Professor */
 .about-section {
   background-color: var(--surface-base);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -818,6 +830,8 @@ button {
 
 .testimonial-card {
   background-color: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-top: 1px solid var(--border-medium);
   border-radius: var(--radius-card);
@@ -895,6 +909,8 @@ button {
 
 .faq-item {
   background-color: var(--surface-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   overflow: hidden;
