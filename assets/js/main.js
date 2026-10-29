@@ -1,12 +1,13 @@
 /**
  * CAUÃ VICTOR — VIOLÃO & CONTRABAIXO
- * Scripts de Interatividade e Acessibilidade
+ * Scripts de Interatividade, Acessibilidade e Micro-interações Dinâmicas (Lottie)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Controle da Navbar Scrolled
   const header = document.querySelector('.header');
   const handleScroll = () => {
+    if (!header) return;
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
     } else {
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       questionBtn.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
 
-        // Fecha todos os outros itens para manter o acordeom limpo
+        // Fecha outros itens para manter acordeom limpo
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('open');
@@ -58,4 +59,47 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 4. Micro-interação Dinâmica com Lottie para Feedbacks de Ação (CTA WhatsApp)
+  const actionModal = document.getElementById('action-modal');
+  const actionModalLottie = document.getElementById('action-modal-lottie');
+  const ctaLinks = document.querySelectorAll('.btn-primary, .btn-cta-large, .nav-cta');
+
+  if (actionModal) {
+    ctaLinks.forEach(cta => {
+      cta.addEventListener('click', (e) => {
+        const href = cta.getAttribute('href');
+        // Se for um link de agendamento no WhatsApp
+        if (href && href.includes('wa.me')) {
+          e.preventDefault();
+
+          // Exibe feedback dinâmico Lottie
+          actionModal.classList.add('active');
+          actionModal.setAttribute('aria-hidden', 'false');
+
+          if (actionModalLottie && typeof actionModalLottie.seek === 'function') {
+            actionModalLottie.seek(0);
+            actionModalLottie.play();
+          }
+
+          // Transição sutil de confirmação e redirecionamento seguro
+          setTimeout(() => {
+            window.open(href, '_blank', 'noopener,noreferrer');
+            setTimeout(() => {
+              actionModal.classList.remove('active');
+              actionModal.setAttribute('aria-hidden', 'true');
+            }, 400);
+          }, 850);
+        }
+      });
+    });
+
+    // Fechar ao clicar fora
+    actionModal.addEventListener('click', (e) => {
+      if (e.target === actionModal) {
+        actionModal.classList.remove('active');
+        actionModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
 });

@@ -35,6 +35,8 @@
 
   <!-- Estilos Globais e Design System -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Lottie Player Web Component (Micro-interações dinâmicas) -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -130,8 +132,8 @@
           </div>
 
           <h1 class="display-title hero-title">
-            AULAS DE VIOLÃO
-            <span class="highlight">E CONTRABAIXO</span>
+            AULAS DE VIOLÃO E
+            <span class="highlight">CONTRABAIXO</span>
           </h1>
 
           <p class="body-lead hero-desc">
@@ -167,21 +169,29 @@
 
         <!-- Mídia Visual / Foto do Professor Cauã com Baixo -->
         <div class="hero-media">
-          <span class="note-particle note-1">♪</span>
-          <span class="note-particle note-2">♫</span>
-          <span class="note-particle note-3">♬</span>
-
-
-
           <!-- Moldura com Foto Recortada de Cauã -->
           <div class="hero-media-wrapper">
             <div class="hero-media-frame">
               <img src="/assets/WhatsApp Image 2026-10-28 at 20.28.52.jpeg"
                 alt="Cauã Victor tocando contrabaixo elétrico no palco" class="hero-photo" id="hero-caua-photo">
             </div>
-          </div>
 
-          <!-- Badge Flutuante Inferior -->
+            <!-- Micro-interação Lottie: Indicador de Áudio de Estúdio -->
+            <div class="hero-live-badge" aria-label="Som de estúdio em tempo real">
+              <lottie-player
+                src="assets/lottie/soundwave.json"
+                background="transparent"
+                speed="1"
+                style="width: 44px; height: 28px;"
+                loop
+                autoplay>
+              </lottie-player>
+              <div class="hero-live-text">
+                <span class="hero-live-title">Áudio de Estúdio</span>
+                <span class="hero-live-sub">Timbragem profissional</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -711,6 +721,22 @@
       </path>
     </svg>
   </a>
+
+  <!-- Modal de Micro-interação / Feedback de Ação com Lottie -->
+  <div class="action-modal-backdrop" id="action-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="action-modal-card">
+      <lottie-player
+        id="action-modal-lottie"
+        src="assets/lottie/success-check.json"
+        background="transparent"
+        speed="1"
+        style="width: 80px; height: 80px;"
+        autoplay>
+      </lottie-player>
+      <h3 class="action-modal-title" id="action-modal-title">Abrindo WhatsApp...</h3>
+      <p class="action-modal-desc" id="action-modal-desc">Conectando você diretamente à agenda do professor Cauã Victor.</p>
+    </div>
+  </div>
 
   <!-- Script Principal -->
   <script src="assets/js/main.js"></script>
