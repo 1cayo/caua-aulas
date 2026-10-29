@@ -794,8 +794,24 @@ button {
   margin-bottom: 24px;
 }
 
-/* .instrumento-icon-box removido — emojis genéricos eliminados */
+/* Bolinha branca de fundo para os ícones de instrumento */
+.instrumento-icon-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+}
 
+.instrumento-icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
 
 .instrumento-card .section-h3 {
   font-size: 1.85rem;
@@ -1671,19 +1687,9 @@ button {
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.65);
 }
 
+/* Pulse removido — botão WhatsApp sem animação piscante */
 .whatsapp-pulse {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px solid #25D366;
-  opacity: 0.8;
-  animation: pulseWpp 2s infinite ease-out;
-  pointer-events: none;
-}
-
-@keyframes pulseWpp {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.5); opacity: 0; }
+  display: none;
 }
 
 .whatsapp-tooltip {
