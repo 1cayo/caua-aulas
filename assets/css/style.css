@@ -97,13 +97,26 @@ html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  min-height: 100%;
+  background-color: #06123A;
+}
+
+/* Fundo Fixo com Gradiente Assinatura Oficial (Garante 100% de coerência em mobile, tablet e desktop) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(145deg, #1600D6 0%, #0051b8 40%, #0072D6 75%, #00B6D6 100%);
+  z-index: -2;
+  pointer-events: none;
 }
 
 body {
   font-family: var(--font-family);
-  background: var(--gradiente-bg);
-  background-attachment: fixed;
-  background-size: cover;
+  background: transparent;
   color: var(--color-creme);
   line-height: 1.6;
   position: relative;
@@ -239,7 +252,7 @@ button {
 }
 
 .header.scrolled {
-  background-color: rgba(5, 13, 41, 0.94);
+  background-color: rgba(6, 18, 58, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding: 12px 0;
@@ -1378,10 +1391,10 @@ button {
     width: min(85vw, 320px);
     height: 100vh;
     height: 100dvh;
-    background: rgba(6, 18, 58, 0.98);
+    background: linear-gradient(180deg, rgba(22, 0, 214, 0.96) 0%, rgba(6, 18, 58, 0.98) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid var(--border-medium);
+    border-left: 1px solid rgba(0, 182, 214, 0.35);
     flex-direction: column;
     justify-content: flex-start;
     gap: 16px;
