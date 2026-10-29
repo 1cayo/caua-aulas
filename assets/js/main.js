@@ -1,6 +1,6 @@
 /**
  * CAUÃ VICTOR — VIOLÃO & CONTRABAIXO
- * Scripts de Interatividade e Acessibilidade
+ * Scripts de Interatividade, Acessibilidade e Navegação Responsiva
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header');
   const handleScroll = () => {
     if (!header) return;
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -17,23 +17,66 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // 2. Menu Mobile Toggle
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  // 2. Menu Mobile Toggle com Acessibilidade e Overlay
+  const mobileToggle = document.getElementById('mobile-toggle-btn');
+  const navMenu = document.getElementById('primary-navigation');
+  const navOverlay = document.getElementById('nav-overlay');
   const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+
+  const openMobileMenu = () => {
+    if (!navMenu || !mobileToggle) return;
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    mobileToggle.classList.add('active');
+    navMenu.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.classList.add('no-scroll');
+  };
+
+  const closeMobileMenu = () => {
+    if (!navMenu || !mobileToggle) return;
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  };
 
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
       const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-      mobileToggle.setAttribute('aria-expanded', !isExpanded);
-      navMenu.classList.toggle('active');
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
+    // Fechar ao clicar em links do menu
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
+        closeMobileMenu();
       });
+    });
+
+    // Fechar ao clicar no overlay escuro
+    if (navOverlay) {
+      navOverlay.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    }
+
+    // Fechar ao pressionar tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Fechar se redimensionar para tela grande
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
     });
   }
 
