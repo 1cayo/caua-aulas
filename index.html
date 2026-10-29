@@ -26,11 +26,11 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230030D6'/%3E%3Cg transform='rotate(32 32 32)'%3E%3Cpath d='M28 20h8v16h-8z' fill='%23FFF4DC'/%3E%3Cpath d='M26 12h12v10h-12z' fill='%2300B6D6'/%3E%3Ccircle cx='32' cy='42' r='14' fill='%23FFF4DC'/%3E%3Ccircle cx='32' cy='33' r='10' fill='%23FFF4DC'/%3E%3Ccircle cx='32' cy='38' r='5' fill='%230030D6'/%3E%3C/g%3E%3C/svg%3E">
 
-  <!-- Google Fonts Oficial (Nunito Sans) -->
+  <!-- Google Fonts Oficial (Nunito Sans & Montserrat) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,900;1,6..12,800;1,6..12,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,900;1,6..12,800;1,6..12,900&display=swap"
     rel="stylesheet">
 
   <!-- Estilos Globais e Design System -->
@@ -485,106 +485,6 @@
     </section>
 
     <!-- ==========================================================================
-         SIMULADOR / QUIZ INTERATIVO DE NÍVEL
-         ========================================================================== -->
-    <section class="section-padding" id="simulador">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">
-            <span class="section-badge-dot"></span>
-            Simulador Rápido
-          </span>
-          <h2 class="section-h2">Descubra a aula perfeita para você</h2>
-          <p class="body-lead">
-            Responda 3 perguntas rápidas para receber uma recomendação sob medida para seu objetivo.
-          </p>
-        </div>
-
-        <div class="quiz-wrapper" id="quiz-container">
-          <!-- Passo 1 -->
-          <div class="quiz-step active" id="quiz-step-1">
-            <div class="quiz-question">1. Qual instrumento você sonha em dominar?</div>
-            <div class="quiz-options">
-              <button class="quiz-option-btn" data-step="1" data-value="violao">
-                <span>🎸 Violão Acústico (acordes, dedilhados e voz)</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="1" data-value="contrabaixo">
-                <span>🔊 Contrabaixo (groove, slap, harmonia e pegada de palco)</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="1" data-value="ambos">
-                <span>⚡ Quero aprender os dois instrumentos</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Passo 2 -->
-          <div class="quiz-step" id="quiz-step-2">
-            <div class="quiz-question">2. Qual é a sua experiência musical atual?</div>
-            <div class="quiz-options">
-              <button class="quiz-option-btn" data-step="2" data-value="Iniciante do Zero">
-                <span>🌱 Nunca toquei nenhum instrumento na vida</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="2" data-value="Básico">
-                <span>🎵 Sei alguns acordes ou notas, mas sinto que travei</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="2" data-value="Intermediário">
-                <span>🚀 Já toco um pouco e quero evoluir técnica e harmonia</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Passo 3 -->
-          <div class="quiz-step" id="quiz-step-3">
-            <div class="quiz-question">3. Qual seu principal objetivo?</div>
-            <div class="quiz-options">
-              <button class="quiz-option-btn" data-step="3" data-value="Tocar na Igreja/Culto">
-                <span>⛪ Tocar na igreja ou ministério de louvor</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="3" data-value="Tocar com Amigos e Família">
-                <span>🎉 Tocar em reuniões familiares e com amigos</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="3" data-value="Montar Banda ou Gravar">
-                <span>🎤 Tocar em banda, palco ou gravar vídeos</span>
-                <span>→</span>
-              </button>
-              <button class="quiz-option-btn" data-step="3" data-value="Hobby Terapêutico">
-                <span>✨ Hobby para relaxar e desestressar da rotina</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Resultado -->
-          <div class="quiz-step" id="quiz-step-result">
-            <div class="quiz-result-box">
-              <div class="quiz-result-icon">🎉</div>
-              <h3 class="quiz-result-title" id="quiz-result-title">Recomendação Sob Medida</h3>
-              <p class="quiz-result-desc" id="quiz-result-desc">
-                Calculando o melhor direcionamento para seu perfil musical...
-              </p>
-              <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" id="quiz-result-cta">
-                  Agendar Esta Aula no WhatsApp
-                </a>
-                <button type="button" class="btn-secondary" id="quiz-restart-btn">
-                  Refazer Teste
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
          DEPOIMENTOS DE ALUNOS
          ========================================================================== -->
     <section class="section-padding" id="depoimentos">
@@ -604,14 +504,14 @@
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">
-              "Eu achava que não tinha coordenação para o contrabaixo. Em menos de 2 meses com o Cauã, já estava
-              acompanhando as músicas na minha igreja sem errar o tempo! O cara tem uma paciência fantástica."
+              "Todo o progresso foi graças ao ótimo trabalho, aos métodos, à paciência, o esforço e a dedicação em
+              ensinar. Seguimos juntos, irmão! Você é o melhor 👊🏼❤."
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">MS</div>
+              <div class="author-avatar">MN</div>
               <div>
-                <div class="author-name">Matheus Silva</div>
-                <div class="author-role">Aluno de Contrabaixo · 4 meses</div>
+                <div class="author-name">Miguel Noronha</div>
+                <div class="author-role">Aluno de Violão · 9 meses</div>
               </div>
             </div>
           </div>
@@ -619,14 +519,15 @@
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">
-              "Sempre travei nas pestanas do violão e doía muito a mão. O Cauã me ensinou a técnica certa de alavanca
-              sem força bruta. Hoje toco meu repertório de MPB inteiro tranquilamente."
+              "Queria te parabenizar pelo excelente trabalho e te agradecer pela paciência, atenção e dedicação ao longo
+              desse ano comigo e com Arthur. Dá pra perceber o cuidado que tu tem ao nos ensinar, e isso faz toda a
+              diferença!"
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">LA</div>
+              <div class="author-avatar">MO</div>
               <div>
-                <div class="author-name">Larissa Albuquerque</div>
-                <div class="author-role">Aluna de Violão · 6 meses</div>
+                <div class="author-name">Marina Oliveira</div>
+                <div class="author-role">Aluna de Violão · 1 ano</div>
               </div>
             </div>
           </div>
@@ -634,14 +535,13 @@
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">
-              "A didática dele é surreal. Nada daquelas apostilas velhas cheias de teoria sem sentido. Na primeira aula
-              eu já saí tocando uma levada completa. Recomendo de olhos fechados!"
+              "Ela está se superando. Fico muito feliz de vê-la se dedicando. "
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">RC</div>
+              <div class="author-avatar">HV</div>
               <div>
-                <div class="author-name">Rodrigo Cavalcanti</div>
-                <div class="author-role">Aluno de Violão & Groove · 8 meses</div>
+                <div class="author-name">Mãe de Hanna Vitória</div>
+                <div class="author-role">Aluna de violão · 4 meses</div>
               </div>
             </div>
           </div>
@@ -827,7 +727,6 @@
         <div>
           <div class="footer-col-title">Informações</div>
           <ul class="footer-links">
-            <li><a href="#simulador">Teste de Nível</a></li>
             <li><a href="#depoimentos">Depoimentos</a></li>
             <li><a href="#faq">Perguntas Frequentes</a></li>
           </ul>
