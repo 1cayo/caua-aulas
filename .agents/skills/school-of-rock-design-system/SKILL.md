@@ -181,3 +181,4 @@ Ao gerar ou revisar qualquer interface seguindo este padrão:
 - [ ] Os botões possuem cantos retos (`border-radius: 0`) e altura generosa (`~60px`)?
 - [ ] As micro-interações de hover executam inversão nítida de cores em 0.2s?
 - [ ] Foi evitado o uso de gradientes pastéis, sombras neon e cantos arredondados corporativos?
+

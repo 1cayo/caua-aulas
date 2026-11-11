@@ -173,3 +173,4 @@ Ao aplicar a estética da School of Rock em novas páginas ou projetos de músic
 2. **Adote o visual "Gig Poster":** Combine títulos massivos em caixa-alta com linhas de texto vazadas em *stroke* transparente.
 3. **Mantenha botões angulares e imponentes:** Altura de 50px a 60px, cantos retos, texto em caixa-alta e efeito de inversão rápida de cor no hover.
 4. **Use o vermelho com critério:** O vermelho `#cf2435` é a cor da pulsação e da ação. Ele direciona o olhar do visitante diretamente para a conversão.
+
