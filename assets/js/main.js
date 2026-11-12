@@ -102,4 +102,50 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 4. Mini Player de Vídeo do Depoimento (Miguel Noronha: 29s até 1min 05s)
+  const videoMiguel = document.getElementById('video-miguel');
+  if (videoMiguel) {
+    const START_TIME = 29; // 29 segundos
+    const END_TIME = 65;   // 1 minuto e 5 segundos (65 segundos)
+
+    // Ajusta o vídeo para iniciar aos 29s
+    const setStartTime = () => {
+      if (videoMiguel.currentTime < START_TIME || videoMiguel.currentTime > END_TIME) {
+        try {
+          videoMiguel.currentTime = START_TIME;
+        } catch (e) {
+          // Navegadores que bloqueiam seek pré-carregamento tratam no primeiro play
+        }
+      }
+    };
+
+    videoMiguel.addEventListener('loadedmetadata', setStartTime);
+
+    // Garante início nos 29 segundos ao dar play
+    videoMiguel.addEventListener('play', () => {
+      if (videoMiguel.currentTime < START_TIME || videoMiguel.currentTime >= END_TIME) {
+        videoMiguel.currentTime = START_TIME;
+      }
+    });
+
+    // Controla o tempo de execução durante a reprodução
+    videoMiguel.addEventListener('timeupdate', () => {
+      // Quando atingir 1m05s (65s), pausa e redefine para os 29 segundos
+      if (videoMiguel.currentTime >= END_TIME) {
+        videoMiguel.pause();
+        videoMiguel.currentTime = START_TIME;
+      }
+    });
+
+    // Se o usuário tentar mover a barra de progresso fora do trecho delimitado
+    videoMiguel.addEventListener('seeking', () => {
+      if (videoMiguel.currentTime < START_TIME) {
+        videoMiguel.currentTime = START_TIME;
+      } else if (videoMiguel.currentTime > END_TIME) {
+        videoMiguel.currentTime = END_TIME;
+        videoMiguel.pause();
+      }
+    });
+  }
 });
