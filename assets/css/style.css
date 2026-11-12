@@ -206,36 +206,42 @@ button {
   display: none;
 }
 
-/* 5. Botões de Ação Calibrados */
+/* 5. Botões de Ação Industriais (Estética School of Rock + Cores Oficiais) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
+  height: 58px;
   background-color: var(--color-ciano-pulso);
+  border: 2px solid var(--color-ciano-pulso);
   color: var(--color-noite);
+  font-family: var(--font-family);
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 16px 36px;
-  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+  padding: 0 38px;
+  border-radius: 0; /* Cantos industriais retos */
   box-shadow: var(--shadow-btn);
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform var(--transition-fast), box-shadow var(--transition-normal), background-color var(--transition-fast);
+  white-space: normal;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform var(--transition-fast);
   text-align: center;
   cursor: pointer;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
+  background-color: transparent;
+  color: var(--color-ciano-pulso);
+  border-color: var(--color-ciano-pulso);
   box-shadow: var(--shadow-btn-hover);
-  background-color: #0bd0f4;
 }
 
 .btn-primary:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(1px);
 }
 
 /* 6. Layout Container */
@@ -1276,7 +1282,10 @@ button {
 }
 
 
-/* 18. Responsividade Completa (Mobile First & Todos os Breakpoints) */
+/* 18. Responsividade Completa (Desktop-Like Experience em Todos os Breakpoints)
+   Filosofia: O usuário mobile e tablet vivencia a mesma imponência, estrutura rica,
+   proporções harmônicas e composição editorial da versão desktop, sem empobrecimento de layout.
+   ========================================================================== */
 
 /* Telas Grandes e Laptops (1025px a 1280px) */
 @media (max-width: 1280px) {
@@ -1285,74 +1294,127 @@ button {
   }
 
   .display-title {
-    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+    font-size: clamp(3rem, 6.2vw, 5.2rem);
   }
 
   .hero-grid {
     gap: 36px;
   }
+
+  .ticker-grid {
+    gap: 20px;
+  }
 }
 
-/* Tablets em Modo Paisagem / Laptops Compactos (993px a 1024px) */
+/* Tablets em Modo Paisagem e Laptops Compactos (993px a 1024px) */
 @media (max-width: 1024px) {
   .nav-menu {
-    gap: 18px;
+    gap: 20px;
   }
 
   .nav-link {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
   .nav-cta {
-    padding: 10px 22px;
+    height: 42px;
+    padding: 0 20px;
     font-size: 0.85rem;
   }
 
+  /* Hero mantém a postura lado a lado com elegância */
   .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: center;
-  }
-
-  .hero-content {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
     align-items: center;
   }
 
-  .hero-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-proof {
-    justify-content: center;
-  }
-
   .hero-media-wrapper {
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 390px;
+  }
+
+  .ticker-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .modalidades-grid {
+    gap: 24px;
   }
 
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
-    text-align: center;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 36px;
+    align-items: center;
   }
 
   .about-photo-card {
-    max-width: 440px;
-    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.2fr 0.9fr 0.9fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* Tablets em Modo Retrato e Telas Médias (769px a 992px) */
+@media (max-width: 992px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+
+  .display-title {
+    font-size: clamp(2.8rem, 5.8vw, 4.4rem);
+  }
+
+  .section-h2 {
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+  }
+
+  .hero-media-wrapper {
+    max-width: 350px;
+  }
+
+  /* Ticker em 2x2 para manter riqueza estrutural do desktop */
+  .ticker-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+  }
+
+  /* Modalidades comparativas lado a lado */
+  .modalidades-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .instrumento-card {
+    padding: 32px 24px;
+  }
+
+  .instrumento-card .section-h3 {
+    font-size: 1.65rem;
+  }
+
+  /* Sobre o professor lado a lado */
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 
   .about-highlights {
-    text-align: left;
-  }
-
-  .about-content .btn-primary {
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
   .testimonials-grid {
@@ -1361,30 +1423,20 @@ button {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 36px;
   }
 }
 
-/* Tablets e Telas Médias (769px a 992px) */
-@media (max-width: 992px) {
-  .section-padding {
-    padding: 72px 0;
-  }
-
-  .modalidades-grid {
-    gap: 24px;
-  }
-
-  .instrumento-card {
-    padding: 32px 24px;
-  }
-}
-
-/* Dispositivos Móveis e Smartphones (<= 768px) */
+/* ==========================================================================
+   Dispositivos Móveis e Smartphones (<= 768px)
+   Experiência Desktop-Like: Títulos de alto impacto, grids estruturados 2x2,
+   depoimentos em carrossel fluido e botões imponentes de palco.
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Header Fixo com Sofisticação Desktop */
   .header {
-    padding: 14px 0;
+    padding: 12px 0;
   }
 
   .header.scrolled {
@@ -1401,19 +1453,20 @@ button {
   }
 
   .brand-name {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
   }
 
   .brand-subtitle {
     font-size: 0.54rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
   }
 
-  /* Menu Hambúrguer Drawer */
+  /* Botão Hambúrguer Industrial */
   .mobile-toggle {
     display: flex;
   }
 
+  /* Drawer de Navegação com Visual de Palco */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -1421,16 +1474,16 @@ button {
     width: min(85vw, 320px);
     height: 100vh;
     height: 100dvh;
-    background: linear-gradient(180deg, rgba(22, 0, 214, 0.96) 0%, rgba(6, 18, 58, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(22, 0, 214, 0.97) 0%, rgba(6, 18, 58, 0.99) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(0, 182, 214, 0.35);
+    border-left: 2px solid var(--color-ciano-pulso);
     flex-direction: column;
     justify-content: flex-start;
-    gap: 16px;
+    gap: 14px;
     padding: 80px 24px 36px;
     transition: right var(--transition-spring);
-    box-shadow: -12px 0 40px rgba(0, 4, 18, 0.65);
+    box-shadow: -12px 0 40px rgba(0, 4, 18, 0.75);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     z-index: 999;
@@ -1447,155 +1500,405 @@ button {
   .nav-link {
     display: flex;
     align-items: center;
-    font-size: 1.125rem;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 244, 220, 0.07);
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 244, 220, 0.08);
     color: var(--color-creme);
+  }
+
+  .nav-link:hover {
+    color: var(--color-ciano-pulso);
+    padding-left: 6px;
   }
 
   .nav-cta {
     width: 100%;
     max-width: 100%;
-    margin-top: 14px;
-    padding: 15px 24px;
-    font-size: 0.98rem;
+    margin-top: 16px;
+    height: 48px;
+    font-size: 0.94rem;
     justify-content: center;
     text-align: center;
-    white-space: normal;
   }
 
-  /* Hero Section Mobile */
+  /* Seções com Espaçamento Harmonioso */
+  .section-padding {
+    padding: 72px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .section-badge {
+    margin-bottom: 12px;
+  }
+
+  .section-h2 {
+    font-size: clamp(2.3rem, 8.5vw, 3.4rem);
+    line-height: 0.95;
+    margin-bottom: 14px;
+  }
+
+  .body-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* -------------------------------------------------------------------------
+     Hero Section Mobile — Imponência do Desktop no Smartphone
+     ------------------------------------------------------------------------- */
   .hero {
     min-height: auto;
-    padding: 110px 0 60px;
+    padding: 110px 0 54px;
+    overflow: hidden;
   }
 
   .hero-watermark-guitar {
     width: 480px;
     height: 600px;
-    top: -5%;
-    right: -25%;
-    opacity: 0.06;
+    top: -4%;
+    right: -28%;
+    opacity: 0.05;
   }
 
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: left;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+  }
+
+  /* Título Monumental de Cartaz (Bebas Neue) com Stroke */
   .display-title {
-    font-size: clamp(2rem, 8vw, 2.9rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
+    font-size: clamp(3rem, 11vw, 4.4rem);
+    letter-spacing: 0.02em;
+    line-height: 0.92;
+    margin-bottom: 18px;
   }
 
   .hero-desc {
-    font-size: 1.05rem;
-    line-height: 1.55;
-    margin-bottom: 26px;
+    font-size: 1.08rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 100%;
   }
 
   .hero-actions {
     width: 100%;
-    gap: 12px;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-actions .btn-primary {
     width: 100%;
-    max-width: 360px;
+    height: 56px;
+    font-size: 1.02rem;
+    letter-spacing: 0.06em;
   }
 
+  /* Prova Social em Linha (Idêntica ao Desktop, sem quebras desengonçadas) */
   .hero-proof {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    gap: 12px;
+    text-align: left;
+    gap: 14px;
     padding-top: 18px;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+  }
+
+  .proof-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+
+  .proof-text {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .proof-text strong {
+    font-size: 0.94rem;
+  }
+
+  /* Foto de Cauã com Moldura de Palco e Tarja Ciano */
+  .hero-media {
+    width: 100%;
   }
 
   .hero-media-wrapper {
-    max-width: 340px;
+    max-width: 100%;
     border-radius: 0;
+    border: 2px solid var(--border-medium);
+    border-top: 4px solid var(--color-ciano-pulso);
+    box-shadow: var(--shadow-elevated);
   }
 
   .hero-media-frame {
     border-radius: 0;
+    aspect-ratio: 4 / 4.6;
   }
 
-  /* Ticker Mobile */
+  /* -------------------------------------------------------------------------
+     Ticker de Diferenciais Mobile — Grade 2x2 Rica (Estilo Painel Desktop)
+     ------------------------------------------------------------------------- */
   .features-ticker {
-    padding: 20px 0;
+    padding: 24px 0;
   }
 
   .ticker-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 14px;
+    align-items: stretch;
   }
 
   .ticker-item {
+    background: var(--surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--color-ciano-pulso);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    text-align: center;
+    gap: 4px;
+    text-align: left;
   }
 
-  /* Modalidades Mobile */
+  .ticker-title {
+    font-size: 1.25rem;
+    line-height: 1.05;
+    letter-spacing: 0.03em;
+  }
+
+  .ticker-subtitle {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: var(--color-creme-muted);
+  }
+
+  /* -------------------------------------------------------------------------
+     Modalidades de Aulas Mobile — Cards Imponentes e Completos
+     ------------------------------------------------------------------------- */
   .modalidades-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 24px;
   }
 
   .instrumento-card {
-    padding: 28px 20px;
+    padding: 32px 22px;
     border-radius: 0;
+    border-top: 4px solid var(--color-ciano-pulso);
+  }
+
+  .card-pill-tag {
+    font-size: 0.74rem;
+    padding: 4px 10px;
+    margin-bottom: 18px;
+  }
+
+  .instrumento-icon-box {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 18px;
+  }
+
+  .instrumento-icon-img {
+    width: 34px;
+    height: 34px;
   }
 
   .instrumento-card .section-h3 {
-    font-size: 1.55rem;
+    font-size: 1.85rem;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .instrumento-desc {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+
+  .topics-list {
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .topics-list li {
+    font-size: 0.94rem;
+    line-height: 1.45;
+    gap: 10px;
+  }
+
+  .topics-list li svg {
+    width: 17px;
+    height: 17px;
   }
 
   .instrumento-action .btn-primary {
     width: 100%;
-    padding: 15px 20px;
-    font-size: 0.95rem;
-    white-space: normal;
-    text-align: center;
+    height: 54px;
+    font-size: 1rem;
+    padding: 0 16px;
   }
 
-  /* Sobre o Professor Mobile */
+  /* -------------------------------------------------------------------------
+     Sobre o Professor Mobile — Estatísticas & Highlights em Grade 2x2
+     ------------------------------------------------------------------------- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: left;
+  }
+
   .about-photo-card {
-    max-width: 340px;
+    max-width: 100%;
     border-radius: 0;
+    border-top: 4px solid var(--color-ciano-pulso);
   }
 
+  .about-photo-card img {
+    aspect-ratio: 4 / 4.8;
+  }
+
+  /* 3 Estatísticas em linha sobre a foto (Como no Desktop) */
   .about-stats {
-    padding: 14px 10px;
+    padding: 16px 12px;
+    display: flex;
+    justify-content: space-around;
   }
 
   .stat-num {
-    font-size: 1.35rem;
+    font-size: 1.55rem;
+    line-height: 1;
   }
 
   .stat-label {
     font-size: 0.68rem;
+    letter-spacing: 0.08em;
   }
 
+  .about-content {
+    text-align: left;
+  }
+
+  .about-text {
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Destaques em Grade 2x2 (Mantém a visão rica do desktop) */
   .about-highlights {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    margin: 22px 0 28px;
+    margin: 24px 0 30px;
+  }
+
+  .highlight-box {
+    padding: 10px 12px;
+    border-left: 3px solid var(--color-ciano-pulso);
+  }
+
+  .highlight-box strong {
+    font-size: 0.88rem;
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+
+  .highlight-box span {
+    font-size: 0.78rem;
+    line-height: 1.35;
   }
 
   .about-content .btn-primary {
     width: 100%;
-    max-width: 360px;
+    height: 56px;
+    font-size: 1.02rem;
   }
 
-  /* Depoimentos Mobile */
+  /* -------------------------------------------------------------------------
+     Depoimentos Mobile — Carrossel Fluido com Scroll Snap (Desktop Slider)
+     Permite folhear os 3 depoimentos mantendo a mesma elegância do desktop
+     ------------------------------------------------------------------------- */
   .testimonials-grid {
-    grid-template-columns: 1fr;
-    max-width: 100%;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 4px 4px 18px;
+    margin: 0 -4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .testimonial-card {
-    padding: 24px 20px;
+    flex: 0 0 min(86vw, 330px);
+    scroll-snap-align: center;
+    padding: 26px 20px;
+    border-radius: 0;
+    border-top: 4px solid var(--color-azul-corda);
   }
 
-  /* FAQ Mobile */
+  .testimonial-stars {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+
+  .testimonial-quote {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .testimonial-author {
+    padding-top: 14px;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 0.88rem;
+  }
+
+  .author-name {
+    font-size: 0.94rem;
+  }
+
+  .author-role {
+    font-size: 0.8rem;
+  }
+
+  /* -------------------------------------------------------------------------
+     FAQ Acordeon Mobile
+     ------------------------------------------------------------------------- */
+  .faq-list {
+    gap: 12px;
+  }
+
+  .faq-item {
+    border-radius: 0;
+  }
+
   .faq-question {
     padding: 16px 18px;
     font-size: 1rem;
@@ -1605,45 +1908,89 @@ button {
   .faq-answer {
     padding: 0 18px;
     font-size: 0.94rem;
+    line-height: 1.55;
   }
 
   .faq-item.open .faq-answer {
     padding-bottom: 18px;
   }
 
-  /* CTA Banner Mobile */
+  /* -------------------------------------------------------------------------
+     CTA Banner Mobile — Formato Imponente de Palco
+     ------------------------------------------------------------------------- */
   .cta-banner {
-    padding: 40px 20px;
+    padding: 44px 22px;
     border-radius: 0;
+    border: 2px solid var(--border-medium);
+    border-left: 6px solid var(--color-ciano-pulso);
+    text-align: left;
   }
 
   .cta-title {
-    font-size: clamp(1.6rem, 6.5vw, 2.3rem);
+    font-size: clamp(2.1rem, 7.8vw, 3.2rem);
+    line-height: 0.94;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
   }
 
   .cta-subtitle {
-    font-size: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
     margin-bottom: 26px;
+  }
+
+  .cta-btn-wrapper {
+    justify-content: flex-start;
   }
 
   .btn-cta-large {
     width: 100%;
-    max-width: 360px;
-    padding: 16px 20px;
-    font-size: 1rem;
-    white-space: normal;
-    text-align: center;
-    gap: 10px;
+    height: 58px;
+    padding: 0 20px;
+    font-size: 1.02rem;
+    justify-content: center;
+    border-radius: 0;
   }
 
-  /* Footer Mobile */
+  /* -------------------------------------------------------------------------
+     Rodapé (Footer) Mobile — Grade 2x2 Estruturada (Como no Desktop)
+     ------------------------------------------------------------------------- */
   .footer {
     padding: 56px 0 28px;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+    margin-bottom: 36px;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand-desc {
+    max-width: 100%;
+    font-size: 0.92rem;
+    margin: 14px 0 20px;
+  }
+
+  .footer-col-title {
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+  }
+
+  .footer-links {
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+
+  .footer-contact-item {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
   }
 
   .footer-bottom {
@@ -1652,12 +1999,12 @@ button {
     gap: 10px;
   }
 
-  /* Botão Flutuante de WhatsApp Mobile */
+  /* Botão Flutuante de WhatsApp */
   .floating-whatsapp {
     bottom: 20px;
     right: 20px;
-    width: 52px;
-    height: 52px;
+    width: 54px;
+    height: 54px;
   }
 
   .floating-whatsapp svg {
@@ -1666,65 +2013,50 @@ button {
   }
 
   .whatsapp-tooltip {
-    display: none; /* Em touch devices o tooltip hover é dispensável */
+    display: none;
   }
 }
 
-/* Smartphones Muito Estreitos (<= 375px - iPhone SE, Galaxy Z Fold, etc.) */
+/* Smartphones Muito Compactos (<= 375px — iPhone SE, Galaxy Fold) */
 @media (max-width: 375px) {
   .container {
     padding: 0 16px;
   }
 
-  .brand-name {
-    font-size: 1.05rem;
-  }
-
-  .brand-subtitle {
-    font-size: 0.5rem;
-    letter-spacing: 0.16em;
-  }
-
   .display-title {
-    font-size: 1.85rem;
+    font-size: 2.7rem;
   }
 
   .section-h2 {
-    font-size: 1.65rem;
+    font-size: 2.1rem;
   }
 
   .btn-primary, .btn-cta-large, .nav-cta {
-    padding: 14px 16px;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
   }
 
   .instrumento-card {
-    padding: 22px 14px;
+    padding: 24px 16px;
   }
 
   .instrumento-card .section-h3 {
-    font-size: 1.35rem;
-  }
-
-  .topics-list li {
-    font-size: 0.88rem;
-    gap: 8px;
-  }
-
-  .hero-media-wrapper {
-    max-width: 290px;
-  }
-
-  .about-photo-card {
-    max-width: 290px;
+    font-size: 1.6rem;
   }
 
   .cta-banner {
-    padding: 32px 14px;
+    padding: 34px 16px;
   }
 
   .cta-title {
-    font-size: 1.45rem;
+    font-size: 1.95rem;
   }
 }
